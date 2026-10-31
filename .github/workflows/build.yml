@@ -23,6 +23,11 @@ jobs:
         run: gradle assembleDebug --no-daemon
       - name: Renomear
         run: cp proj/app/build/outputs/apk/debug/app-debug.apk Horizon.apk
+      - name: Guardar o APK como artefato
+        uses: actions/upload-artifact@v4
+        with:
+          name: HorizonTV-apk
+          path: Horizon.apk
       - name: Publicar link fixo
         uses: softprops/action-gh-release@v2
         with:
